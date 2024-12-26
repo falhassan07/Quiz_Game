@@ -20,6 +20,7 @@ class QuizBrain:
         else:
             print("That's wrong!")
         print(f"Current Score: {self.score}/{self.question_number}")
+        print("\n")
 
 
     def still_has_questions(self) -> bool:
