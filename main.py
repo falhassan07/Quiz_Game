@@ -1,4 +1,5 @@
 from question_model import Question
+from quiz_brain import QuizBrain
 from data import get_data
 import html
 
@@ -13,3 +14,6 @@ for item in data:
     new_question = Question(question, answer)
     question_bank.append(new_question)
 
+
+quiz = QuizBrain(question_bank)
+quiz.next_question()
