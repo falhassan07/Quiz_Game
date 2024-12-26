@@ -1,6 +1,7 @@
 from question_model import Question
 from quiz_brain import QuizBrain
 from data import get_data
+from ui import QuizInterface
 import html
 
 
@@ -17,8 +18,10 @@ for item in data:
 
 quiz = QuizBrain(question_bank)
 
-while quiz.still_has_questions():
-    quiz.next_question()
+
+quiz_Ui = QuizInterface()
+# while quiz.still_has_questions():
+#     quiz.next_question()
 
 
 print("You've completed the quiz.")
