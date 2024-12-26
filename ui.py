@@ -39,8 +39,16 @@ class QuizInterface:
 
     def get_next_question(self):
         self.canvas.config(bg="white")
-        self.question = self.quiz.next_question()
-        self.canvas.itemconfig(self.question_text, text=self.question)
+        if self.quiz.still_has_questions():
+            self.question = self.quiz.next_question()
+            self.canvas.itemconfig(self.question_text, text=self.question)
+
+        else:
+            self.canvas.itemconfig(self.question_text, text=f"You've reached the end of the quiz! \n\n Final Score: {self.quiz.score}/{self.quiz.question_number}")
+            self.true_button.config(state="disabled")
+            self.false_button.config(state="disabled")
+            
+
 
 
     def is_correct(self):
@@ -55,6 +63,7 @@ class QuizInterface:
     def give_feedback(self, is_right):
         if is_right:
             self.canvas.config(bg="green")
+            self.score_label.config(text=f"Score: {self.quiz.score}")
 
         else:
             self.canvas.config(bg="red")
