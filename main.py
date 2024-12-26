@@ -19,7 +19,7 @@ for item in data:
 quiz = QuizBrain(question_bank)
 
 
-quiz_Ui = QuizInterface()
+quiz_Ui = QuizInterface(quiz)
 # while quiz.still_has_questions():
 #     quiz.next_question()
 
